@@ -106,6 +106,7 @@ class Calculator
     }
 }
 
+//Aqui eu busco no HTML e guardo nas variáveis todos os Buttons com os atributos definidos
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
