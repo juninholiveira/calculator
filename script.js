@@ -83,7 +83,7 @@ class Calculator
     appendNumber(number)
     {
         //Verifica se o número que recebeu é um ponto. Se for E já houver um ponto no visor principal, então finaliza a função
-        if (number === '.' && this.currentOperand.includes('.')) return;
+        if (number === ',' && this.currentOperand.includes(',')) return;
 
         //Pega o visor principal, transforma em String e adiciona no final o número recebido pela função
         this.currentOperand = this.currentOperand.toString() + number.toString();
@@ -148,8 +148,8 @@ class Calculator
     getDisplayNumber(number)
     {
         const stringNumber = number.toString();                                                     //Primeiro, transforma o número recebido em uma string e guarda ele
-        const integerDigits = parseFloat(stringNumber.split('.')[0]);                               //Pega o n° em string, divide ele em 2 bem onde estiver o ponto, pega a primeira parte dele e transforma em Number e salva na variável
-        const decimalDigits = stringNumber.split('.')[1];                                           //Pega o n° em string, divide ele em 2 bem onde estiver o ponto, pega segunda parte dele e salva na variável
+        const integerDigits = parseFloat(stringNumber.split(',')[0]);                               //Pega o n° em string, divide ele em 2 bem onde estiver o ponto, pega a primeira parte dele e transforma em Number e salva na variável
+        const decimalDigits = stringNumber.split(',')[1];                                           //Pega o n° em string, divide ele em 2 bem onde estiver o ponto, pega segunda parte dele e salva na variável
         let integerDisplay;                                                                         //Cria a variável que vai guardar o número inteiro (antes do ponto)
 
         //Se não for um número, apaga o valor dele
@@ -160,14 +160,14 @@ class Calculator
         //Se for um número, localiza ele com base no padrão inglês (sem fração)
         else
         {
-            integerDisplay = integerDigits.toLocaleString('en', {maximumFractionDigits : 0})
+            integerDisplay = integerDigits.toLocaleString('br', {maximumFractionDigits : 0})
         }
 
         //Se a variável 'decimalDigits' não estiver nula...
         if(decimalDigits != null)
         {
             //...junta a variável 'integerDisplay' com a 'decimalDigits' separadas por um ponto e retorna ela na função
-            return `${integerDisplay}.${decimalDigits}`;
+            return `${integerDisplay},${decimalDigits}`;
         }
         //Senão, retorna só a variável do número inteiro, sem ponto
         else
